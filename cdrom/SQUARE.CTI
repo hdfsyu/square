@@ -1,44 +1,44 @@
 Define LicensePath c:\cdgen\license\
 Define LicenseFile licensee.dat
 
-Disc CDROMXA_PSX ;the disk format
+Disc CDROMXA_PSX
 
 	CatalogNumber 0000000000000
 
-	LeadIn XA ;lead in track (track 0)
-		Empty 300 ;defines the lead in size (min 150)
-		PostGap 150 ;required gap at end of the lead in
-	EndTrack ;end of the lead in track
+	LeadIn XA
+		Empty 300
+		PostGap 150
+	EndTrack
 
-	Track XA ;start of the XA (data) track
+	Track XA
 
-		Pause 150 ;required pause in first track after the lead in
+		Pause 150
 
-		Volume ISO9660 ;define ISO 9660 volume
+		Volume ISO9660
 			
 			SystemArea [LicensePath][LicenseFile]
 			
 			PrimaryVolume ;start point of primary volume
-				SystemIdentifier "PLAYSTATION" ;required indetifier (do not change)
-				VolumeIdentifier "HIWORLD" ;app specific identifiers (changeable)
-				VolumeSetIdentifier "HIWORLD"
-				PublisherIdentifier "SCEE"
+				SystemIdentifier "PLAYSTATION"
+				VolumeIdentifier "SQUARE"
+				VolumeSetIdentifier "SQUARE"
+				PublisherIdentifier "SCEA"
 				DataPreparerIdentifier "SONY"
 				ApplicationIdentifier "PLAYSTATION"
-				LPath ;path tables as specified for PlayStation
+				LPath
 				OptionalLpath
 				MPath
 				OptionalMpath
 
-				Hierarchy ;start point of root directory definition
+				Hierarchy
 
 					XAFileAttributes  Form1 Audio
 					XAVideoAttributes ApplicationSpecific
-					XAAudioAttributes ADPCM_C Stereo ;you can also add 'Emphasis_On' before Stereo
+					XAAudioAttributes ADPCM_C Stereo
 
 					File SYSTEM.CNF
-						XAFileAttributes Form1 Data ;set the attribute to form 1
-						Source c:\psyq\projects\hiworld\cdrom\SYSTEM.CNF ;where the file above can be found
+						XAFileAttributes Form1 Data
+						Source c:\psyq\projects\hiworld\cdrom\SYSTEM.CNF
 					EndFile
 
 					File MAIN.EXE
@@ -46,18 +46,18 @@ Disc CDROMXA_PSX ;the disk format
 						Source c:\psyq\projects\hiworld\MAIN.EXE
 					EndFile
 
-				EndHierarchy ;ends the root directory definition
+				EndHierarchy
 
-			EndPrimaryVolume ;ends the primary volume definition 
+			EndPrimaryVolume
 
-		EndVolume ;ends the ISO 9660 definition
+		EndVolume
 
 		Empty 300
-		PostGap 150 ;required to change the track type
+		PostGap 150
 	
-	EndTrack ;ends the track definition (end of the XA track)
+	EndTrack
 
-	LeadOut XA ;note that the leadout track must be the same data type as the last track (IE: AUDIO, XA or MODE1)
+	LeadOut XA
 		Empty 150
 	EndTrack
 
