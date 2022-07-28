@@ -1,6 +1,3 @@
-# ----------------------------
-# PlayStation 1 Psy-Q MAKEFILE
-# ----------------------------
 all:
 	del mem.map
 	del main.sym
