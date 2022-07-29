@@ -1,24 +1,16 @@
-Define LicensePath c:\cdgen\license\
-Define LicenseFile licensee.dat
-
+Define LicensePath c:\psyq\cdgen\lcnsfile\
+Define LicenseFile licensea.dat
 Disc CDROMXA_PSX
-
 	CatalogNumber 0000000000000
-
 	LeadIn XA
 		Empty 300
 		PostGap 150
 	EndTrack
-
 	Track XA
-
 		Pause 150
-
 		Volume ISO9660
-			
 			SystemArea [LicensePath][LicenseFile]
-			
-			PrimaryVolume ;start point of primary volume
+			PrimaryVolume
 				SystemIdentifier "PLAYSTATION"
 				VolumeIdentifier "SQUARE"
 				VolumeSetIdentifier "SQUARE"
@@ -29,36 +21,25 @@ Disc CDROMXA_PSX
 				OptionalLpath
 				MPath
 				OptionalMpath
-
 				Hierarchy
-
 					XAFileAttributes  Form1 Audio
 					XAVideoAttributes ApplicationSpecific
 					XAAudioAttributes ADPCM_C Stereo
-
 					File SYSTEM.CNF
 						XAFileAttributes Form1 Data
-						Source c:\psyq\projects\hiworld\cdrom\SYSTEM.CNF
+						Source c:\psyq\projects\square\cdrom\SYSTEM.CNF
 					EndFile
-
 					File MAIN.EXE
 						XAFileAttributes Form1 Data
-						Source c:\psyq\projects\hiworld\MAIN.EXE
+						Source c:\psyq\projects\square\MAIN.EXE
 					EndFile
-
 				EndHierarchy
-
 			EndPrimaryVolume
-
 		EndVolume
-
 		Empty 300
-		PostGap 150
-	
+		PostGap 150 ;required to change the track type
 	EndTrack
-
 	LeadOut XA
 		Empty 150
 	EndTrack
-
 EndDisc
